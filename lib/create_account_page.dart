@@ -6,7 +6,9 @@ import 'package:foodie_app/sign_in_page.dart';
 
 
 class CreateAccountPage extends StatelessWidget {
-  const CreateAccountPage({super.key});
+   CreateAccountPage({super.key});
+  // TextEditingController _emailController = TextEditingController();
+  // TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -246,7 +248,7 @@ class CreateAccountPage extends StatelessWidget {
                            ),
 
                            onPressed:(){
-                             Navigator.of(context).pop();
+                             Navigator.of(context).push(MaterialPageRoute(builder: (_) => SigninPage() ));
                            }, child: Text("CREATE ACCOUNT",style: TextStyle(fontWeight: FontWeight
                            .w500,fontSize: 17),)),
                      ],
@@ -265,7 +267,6 @@ class CreateAccountPage extends StatelessWidget {
                      mainAxisAlignment: MainAxisAlignment.center,
                      children: [Text("Already have an account? ",style: TextStyle(color: Colors.white),),
                        Text("Sign In",style: TextStyle(color: Colors.lightBlueAccent,fontWeight: FontWeight.w500),)],
-
 
                    ),
 

@@ -42,6 +42,8 @@ dependencies:
   motion_tab_bar: ^2.0.4
   another_flushbar: ^1.12.30
   flutter_screenutil: ^5.9.0
+  firebase_core: ^2.27.1
+  firebase_auth: ^4.17.9
 
 dev_dependencies:
   flutter_test:

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,8 +11,31 @@ import 'homepage.dart';
 
 class SigninPage extends StatelessWidget {
    SigninPage({super.key});
-  TextEditingController _CntrlText = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
    FocusNode myFocusNode = FocusNode();
+
+
+   void _login(BuildContext context) async {
+     try {
+       UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+         email: _emailController.text,
+         password: _passwordController.text,
+       );
+       // If login is successful, you can navigate to another screen or perform other actions.
+       // For example, you might want to navigate to the home screen.
+       Navigator.of(context).push(MaterialPageRoute(
+           builder: (_) => HomePage()));
+     } on FirebaseAuthException catch (e) {
+       if (e.code == 'user-not-found') {
+         print('No user found for that email.');
+       } else if (e.code == 'wrong-password') {
+         print('Wrong password provided for that user.');
+       }
+     } catch (e) {
+       print(e);
+     }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +115,7 @@ class SigninPage extends StatelessWidget {
                   //
                   // ),
                   TextField(
+                    controller: _emailController,
                     focusNode: myFocusNode,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
@@ -150,7 +175,7 @@ class SigninPage extends StatelessWidget {
                   // ),
                   TextField(
                     obscureText: true,
-                    controller: _CntrlText,
+                    controller: _passwordController,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(
@@ -193,8 +218,10 @@ class SigninPage extends StatelessWidget {
                             elevation: 4.0,
                           ),
                           onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (_) => HomePage()));
+                            _login(context);
+                            //_signUp(context);
+                            // Navigator.of(context).push(MaterialPageRoute(
+                            //     builder: (_) => HomePage()));
                           },
                           child: Text(
                             "LOGIN", style: TextStyle(fontWeight: FontWeight

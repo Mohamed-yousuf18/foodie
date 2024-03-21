@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:foodie_app/my_order_page.dart';
 import 'package:foodie_app/order_page.dart';
 import 'package:foodie_app/sample.dart';
+import 'package:foodie_app/userpage.dart';
 import 'package:foodie_app/widgets/Add_Icon_button.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 import 'package:motion_tab_bar/MotionTabBarController.dart';
@@ -181,7 +182,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                     .push(MaterialPageRoute(builder: (_) => MyOrderPage()));
               case 2:
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => MyOrderPage()));
+                    .push(MaterialPageRoute(builder: (_) => UserPage()));
               default:
                 Navigator.of(context).pop();
             }
