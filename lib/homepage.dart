@@ -343,7 +343,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Row(
                   children: [
-                    Image.asset('assets/images/burgermenu1.png',width: 25,scale: 1, ),
+                    Image.asset('assets/images/burgermenu1.png',width: 25 ),
                   ],
                 ),
               ),
