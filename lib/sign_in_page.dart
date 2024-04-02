@@ -9,33 +9,55 @@ import 'create_account_page.dart';
 import 'homepage.dart';
 
 
-class SigninPage extends StatelessWidget {
+class SigninPage extends StatefulWidget {
    SigninPage({super.key});
+
+  @override
+  State<SigninPage> createState() => _SigninPageState();
+}
+
+class _SigninPageState extends State<SigninPage> {
   TextEditingController _emailController = TextEditingController();
+
   TextEditingController _passwordController = TextEditingController();
+
    FocusNode myFocusNode = FocusNode();
 
+   String email = "";
 
-   void _login(BuildContext context) async {
-     try {
-       UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-         email: _emailController.text,
-         password: _passwordController.text,
-       );
-       // If login is successful, you can navigate to another screen or perform other actions.
-       // For example, you might want to navigate to the home screen.
-       Navigator.of(context).push(MaterialPageRoute(
-           builder: (_) => HomePage()));
-     } on FirebaseAuthException catch (e) {
-       if (e.code == 'user-not-found') {
-         print('No user found for that email.');
-       } else if (e.code == 'wrong-password') {
-         print('Wrong password provided for that user.');
-       }
-     } catch (e) {
-       print(e);
-     }
-   }
+   String passowrd = "";
+
+   String name = "";
+
+   bool login = false;
+
+  void _login(BuildContext context) async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+        email: _emailController.text,
+        password: _passwordController.text,
+      );
+      // If login is successful, you can navigate to another screen or perform other actions.
+      // For example, you might want to navigate to the home screen.
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (_) => HomePage()));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        // Show wrong password error message on screen using SnackBar
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Wrong password provided for that user.'),
+            duration: Duration(seconds: 2), // Adjust the duration as needed
+          ),
+        );
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +150,11 @@ class SigninPage extends StatelessWidget {
 
 
                     ),
+                    onSubmitted: (value){
+                      setState(() {
+                        email = value;
+                      });
+                    },
                   ),
                    SizedBox(
                     height: 30.h,
@@ -190,6 +217,16 @@ class SigninPage extends StatelessWidget {
 
 
                     ),
+
+
+
+
+
+                    onSubmitted: (value){
+                      setState(() {
+                        passowrd = value;
+                      });
+                    },
                   ),
                    SizedBox(
                     height: .05.sh,

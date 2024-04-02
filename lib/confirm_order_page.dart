@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_app/payment_page.dart';
 
 import 'my_order_page.dart';
 
@@ -399,26 +400,31 @@ class _ConfirmOrderPageState extends State<ConfirmOrderPage> {
 
                  }
                  ,
-                 child: Container(
-                     width: 200,
-                     height: 55,
-                     decoration: BoxDecoration(
-                         color:  Color(0xffFFBC00),
-                         borderRadius: BorderRadius.circular(50),
-                         boxShadow: [BoxShadow(
-                             color: Colors.black38,
-                             offset: Offset(0,2),
-                             blurRadius: 8,
-                             spreadRadius: 1
-                         )]
-                     ),
-                     child: Column(
-                       mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
-                         Text("Confirm Order",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600,fontSize: 18),),
-                       ],
-                     )
+                 child: InkWell(
+                   onTap: (){
+                     Navigator.of(context).push(MaterialPageRoute(builder: (_)=>PaymentPage()));
+                   },
+                   child: Container(
+                       width: 200,
+                       height: 55,
+                       decoration: BoxDecoration(
+                           color:  Color(0xffFFBC00),
+                           borderRadius: BorderRadius.circular(50),
+                           boxShadow: [BoxShadow(
+                               color: Colors.black38,
+                               offset: Offset(0,2),
+                               blurRadius: 8,
+                               spreadRadius: 1
+                           )]
+                       ),
+                       child: Column(
+                         mainAxisAlignment: MainAxisAlignment.center,
+                         children: [
+                           Text("Proceed to Pay",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600,fontSize: 18),),
+                         ],
+                       )
 
+                   ),
                  ),
                )
 

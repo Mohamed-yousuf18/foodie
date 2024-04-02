@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodie_app/homepage.dart';
+import 'package:foodie_app/track_order.dart';
+import 'package:foodie_app/userpage.dart';
 
 import 'categorypage1.dart';
 
@@ -36,7 +38,7 @@ class _MyOrderPageState extends State<MyOrderPage> {
                   .push(MaterialPageRoute(builder: (_) => HomePage()));
             case 2:
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => MyOrderPage()));
+                  .push(MaterialPageRoute(builder: (_) => UserPage()));
             default:
               Navigator.of(context).pop();
           }
@@ -88,658 +90,666 @@ class _MyOrderPageState extends State<MyOrderPage> {
           ),
 
         ),
-        child: ListView(
-          children: [
-             Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
+        child: InkWell(
+
+          onTap: (){
+
+            Navigator.of(context).push(MaterialPageRoute(builder: (_)=>TrackOrder()));
+          },
+
+          child: ListView(
+            children: [
+               Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
+
+                          ),
+
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
+
+                              Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
+
+
+
+
+
+
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
+                  )
+                ],
+              ), Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
 
-                        ),
+                          ),
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
 
-                            Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
+                              Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
+
                     ),
+                  )
+                ],
+              ), Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
 
+                          ),
 
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
 
+                              Text("Deliverred",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("Yesterday",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
 
-
-
-                  ),
-                )
-              ],
-            ), Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
+                  )
+                ],
+              ), Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
 
-                        ),
+                          ),
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
 
-                            Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
+                              Text("Cancel",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("23 Mar,2024",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
+
                     ),
+                  )
+                ],
+              ), Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
 
-                  ),
-                )
-              ],
-            ), Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
+                          ),
+
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
+
+                              Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
+
+
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
+                  )
+                ],
+              ), Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
 
-                        ),
+                          ),
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
 
-                            Text("Deliverred",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("Yesterday",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
+                              Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
+
+
+
+
+
+
                     ),
+                  )
+                ],
+              ), Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
 
-                  ),
-                )
-              ],
-            ), Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
+                          ),
+
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
+
+                              Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
+
+
+
+
+
+
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
+                  )
+                ],
+              ), Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
 
-                        ),
+                          ),
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
 
-                            Text("Cancel",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("23 Mar,2024",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
+                              Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
+
+
+
+
+
+
                     ),
+                  )
+                ],
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: 110,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              //  tileMode: TileMode.repeated ,
+                              colors: [
+                                Color(0xff45173E),
+                                // Color(0xff7B296E),
+                                //Color(0xff7B296E),
+                                Color(0xffB33399)
+                              ]
+                          ),
+                          boxShadow: [BoxShadow(
+                              color: Colors.black38,
+                              offset: Offset(2,2),
+                              blurRadius: 8,
+                              spreadRadius: 2
+                          )]
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20,top: 10),
+                                child: Image.asset('assets/images/meals22.png',width: 50,),
+                              ),
+                              Spacer(),
+                              Row(
+                                children: [
+                                  Image.asset('assets/images/addcartimg2.png',width: 35,),
+                                  SizedBox(width: 10,),
+                                  Image.asset('assets/images/juice1.png',width: 30,)
+                                ],
+                              )
+                            ],
 
-                  ),
-                )
-              ],
-            ), Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
+                          ),
+
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10)),
+
+                              Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                              SizedBox(height: 40,),
+                              Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              Padding(padding: EdgeInsets.only(top: 10 )),
+                              Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
+                            ],
+                          ),
+                        ],
+                      ),
+
+
+
+
+
+
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
-
-                        ),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
-
-                            Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
-                    ),
-
-
-                  ),
-                )
-              ],
-            ), Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
-
-                        ),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
-
-                            Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
-                    ),
-
-
-
-
-
-
-                  ),
-                )
-              ],
-            ), Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
-
-                        ),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
-
-                            Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
-                    ),
-
-
-
-
-
-
-                  ),
-                )
-              ],
-            ), Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
-
-                        ),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
-
-                            Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
-                    ),
-
-
-
-
-
-
-                  ),
-                )
-              ],
-            ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    height: 110,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            //  tileMode: TileMode.repeated ,
-                            colors: [
-                              Color(0xff45173E),
-                              // Color(0xff7B296E),
-                              //Color(0xff7B296E),
-                              Color(0xffB33399)
-                            ]
-                        ),
-                        boxShadow: [BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(2,2),
-                            blurRadius: 8,
-                            spreadRadius: 2
-                        )]
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20,top: 10),
-                              child: Image.asset('assets/images/meals22.png',width: 50,),
-                            ),
-                            Spacer(),
-                            Row(
-                              children: [
-                                Image.asset('assets/images/addcartimg2.png',width: 35,),
-                                SizedBox(width: 10,),
-                                Image.asset('assets/images/juice1.png',width: 30,)
-                              ],
-                            )
-                          ],
-
-                        ),
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10)),
-
-                            Text("Processing",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                            SizedBox(height: 40,),
-                            Text("Order ID:2545865456",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Padding(padding: EdgeInsets.only(top: 10 )),
-                            Text("Today",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.w300),),
-                          ],
-                        ),
-                      ],
-                    ),
-
-
-
-
-
-
-                  ),
-                )
-              ],
-            ),
-          ],
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

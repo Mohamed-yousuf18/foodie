@@ -1,19 +1,26 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:foodie_app/badge_test_page.dart';
+import 'package:foodie_app/homepage.dart';
+import 'package:foodie_app/sign_in_page.dart';
+import 'package:foodie_app/timeline_component/time_line_page.dart';
 import 'package:foodie_app/user_profile_model/user_model.dart';
+import 'package:badges/badges.dart' as badges;
 
 class UserPage extends StatelessWidget {
    UserPage({super.key});
 
   List<UserModel> user = [
-    UserModel(icon: Icon(Icons.person,color: Colors.white,size: 30,), text: "Profile Information"),
-    UserModel(icon: Icon(Icons.payment, color: Colors.white,size: 30,), text: "Payment Information"),
-    UserModel(icon: Icon(Icons.production_quantity_limits,  color: Colors.white,size: 30,), text: "Profile Information"),
-    UserModel(icon: Icon(Icons.live_help_sharp,color: Colors.white,size: 30,), text: "Profile Information"),
-    UserModel(icon: Icon(Icons.person), text: "Profile Information"),
-    UserModel(icon: Icon(Icons.person), text: "Profile Information"),
-    UserModel(icon: Icon(Icons.person), text: "Profile Information"),
+    UserModel(image:'assets/svg/profile.svg', text: "Profile Information"),
+    UserModel(image:'assets/svg/payment.svg', text: "Payment Information"),
+    UserModel(image:'assets/svg/promo.svg',  text: "Profile Information"),
+    UserModel(image:'assets/svg/helpicon.svg', text: "Profile Information"),
+    UserModel(image:'assets/svg/settings.svg', text: "Profile Information"),
+    UserModel(image:'assets/svg/Logout.svg', text: "Profile Information"),
+    // UserModel(icon: Icon(Icons.person), text: "Profile Information"),
   ];
 
   @override
@@ -30,58 +37,79 @@ class UserPage extends StatelessWidget {
               height: 50,
             ),
             CircleAvatar
-                            (child: Icon(Icons.person,color: Colors.black,size: 50,),radius: 50,),
-                                       Text("Mohamed",style: TextStyle(color: Colors.white),),
-                                       Text("mohamed123@example.com",style: TextStyle(color: Colors.white),),
+              (child: Icon(Icons.person,color: Colors.black,size: 50,),radius: 50,),
+            Text("Mohamed",style: TextStyle(color: Colors.white),),
+            Text("mohamed123@example.com",style: TextStyle(color: Colors.white),),
         SizedBox(
           height: 30,
         ),
-        Container(
-                        width: 330,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              //  tileMode: TileMode.repeated ,
-                              colors: [
-                                Color(0xff45173E),
-                                Color(0xff7B296E),
-                                //Color(0xff7B296E),
-                                Color(0xffAB399A),
-                              ]
-                          ),
+        Stack(
+          children: [
+            Container(
+              width: 330,
+              height: 80,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    //  tileMode: TileMode.repeated ,
+                    colors: [
+                      Color(0xff45173E),
+                      Color(0xff7B296E),
+                      //Color(0xff7B296E),
+                      Color(0xffAB399A),
+                    ]
+                ),
+              ),
+
+              child:Padding(
+                padding: const EdgeInsets.only(top: 20,left: 10,right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    Column(
+                      children: [
+                        InkWell(
+                            onTap: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>TimeLinePage()));
+                            },
+                            child: Icon(Icons.event_note_outlined,color: Colors.white,)),
+                        Text("My Order",style: TextStyle(color: Colors.white),),
+                      ],
+                    ),
+                    Column(
+                      children: [
+
+                        badges.Badge(
+                            badgeContent:Text("3",style: TextStyle(color: Colors.white),),
+                            position: badges.BadgePosition.topEnd(),
+                            child: Icon(Icons.favorite_border,color: Colors.white,)),
+
+
+                        Text("Favorites",style: TextStyle(color: Colors.white),),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        badges.Badge(
+                            badgeContent:Text("3",style: TextStyle(color: Colors.white),),
+                            badgeAnimation: badges.BadgeAnimation.scale(),
+
+                            child: Icon(Icons.notifications_outlined,color: Colors.white,)
+
                         ),
 
-                        child:Padding(
-                          padding: const EdgeInsets.only(top: 20,left: 10,right: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
 
-                              Column(
-                                children: [
-                                  Icon(Icons.event_note_outlined,color: Colors.white,),
-                                  Text("My Order",style: TextStyle(color: Colors.white),),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Icon(Icons.favorite_border,color: Colors.white,),
-                                  Text("Favorites",style: TextStyle(color: Colors.white),),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Icon(Icons.notification_add_outlined,color: Colors.white,),
-                                  Text("Notification",style: TextStyle(color: Colors.white),),
-                                ],
-                              ),
+                        Text("Notification",style: TextStyle(color: Colors.white),),
+                      ],
+                    ),
 
-                            ],
-                          ),
-                        ),
-                      ),
+                  ],
+                ),
+              ),
+            ),
+          ],),
         SizedBox(height: 16,),
         SizedBox(
           height: 500,
@@ -92,17 +120,27 @@ class UserPage extends StatelessWidget {
               return  Column(
                 children: [
                   SizedBox(height: 30,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
-                    child: Row(
-                      children: [
-                        user[index].icon ?? Icon(Icons.person) ,
-                        SizedBox(width: 20,),
-                        Text("${user[index].text}",style: TextStyle(color: Colors.white,fontSize: 18),),
-                        Spacer(),
-                        Icon(Icons.arrow_forward_ios,color: Colors.white,size: 20,),
+                  InkWell(
+                    onTap: (){
+                    if(index==5){ FirebaseAuth.instance.signOut();
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_) => SigninPage()));}
 
-                      ],
+                     print("dfdf ${ index}");
+                    },
+
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 10),
+                      child: Row(
+                        children: [
+                          // user[index].icon ?? Icon(Icons.person) ,
+                          SvgPicture.asset("${user[index].image}"),
+                          SizedBox(width: 20,),
+                          Text("${user[index].text}",style: TextStyle(color: Colors.white,fontSize: 18),),
+                          Spacer(),
+                          Icon(Icons.arrow_forward_ios,color: Colors.white,size: 20,),
+
+                        ],
+                      ),
                     ),
                   ),
                     Divider(
