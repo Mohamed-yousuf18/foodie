@@ -8,9 +8,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie_app/my_order_page.dart';
 import 'package:foodie_app/order_page.dart';
 import 'package:foodie_app/sign_in_page.dart';
+import 'package:foodie_app/test_page.dart';
 import 'package:foodie_app/testingpage/bottom_navigation_bar.dart';
 import 'package:foodie_app/userpage.dart';
 import 'package:foodie_app/widgets/Add_Icon_button.dart';
+import 'package:foodie_app/widgets/bottomNavigationBarCustom.dart';
 import 'package:foodie_app/widgets/category_cont.dart';
 import 'package:foodie_app/widgets/menu_bar_.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,7 +55,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   int index=0;
 
   bool isHighlighted = false;
-   bool location = false;
+   bool location = true;
 
   void showFloatingFlushbar( {required BuildContext context,
     @required String? message,
@@ -158,8 +160,9 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       {'img':'assets/images/icons/Aimg5.png'},
       {'img':'assets/images/icons/Aimg7.png'},
 
+    ];
 
-    ]; var popmenu=[
+    var popmenu=[
       {'img':'assets/images/icons/Aimg1.png'},
       {'img':'assets/images/icons/Aimg2.png'},
       {'img':'assets/images/icons/Aimg3.png'},
@@ -253,6 +256,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                         title: Text('${menubar[index].text}',style: TextStyle(color: Colors.white),),
                         onTap: (){
                           Navigator.of(context).push(MaterialPageRoute(builder: (_)=>HomePage()));
+
                         },
                       );
 
@@ -278,7 +282,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       //   labels: ["Cart", "Home", "User"],
       //   icons: [Icons.shopping_cart, Icons.home, Icons.person],
       // ),
-        bottomNavigationBar: BottomNavigationBar(
+
+     bottomNavigationBar: DefaultNavBar(),
+
+      /*bottomNavigationBar: BottomNavigationBar(
           //backgroundColor: Color(0xff47163F),
           backgroundColor: Color(0xffD60000),
           selectedItemColor:Colors.white ,
@@ -326,6 +333,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           ),
         ],),
 
+       */
+
 
         //==================================================================================
       appBar: AppBar(
@@ -353,9 +362,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
         actions: [
           IconButton(onPressed: (){
 
-            Navigator.of(context).push(MaterialPageRoute(builder: (_)=>CategoryPage1()));
+          setState(() {
+            location = ! location;
+            
+          });
             //if (location)
-            }, icon:Icon(Icons.location_on,color: Colors.white,))
+            }, icon:Icon(location?Icons.location_on:Icons.access_alarm))
         ],
 
       ),
@@ -504,7 +516,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                 itemBuilder: (context,index){
                   return InkWell(
                     onTap: (){
-                      //Navigator.of(context).push(MaterialPageRoute(builder: (_)=>NavigationPage()));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_)=>TestPage()));
 
                     },
                     child: Container(
@@ -679,8 +691,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 }
 
 
-class CurvedNavigationBarItem {
-}
 
 
 

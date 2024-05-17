@@ -17,18 +17,19 @@ class _OrderPageState extends State<OrderPage> {
   add(){
     setState(() {
       value ++;
-      print(value);
-
     });
   }
+
+
   sub(){
     setState(() {
       if (value>0){
         value--;
-        print(value);
+
       }
 
     });
+
 
   }
   @override
@@ -181,7 +182,7 @@ class _OrderPageState extends State<OrderPage> {
                               onTap: (){
                                 setState(() {
                                   sub();
-                                  print(value);
+
                                 });
 
                               },
@@ -211,7 +212,7 @@ class _OrderPageState extends State<OrderPage> {
                             InkWell(
                               onTap: (){
                                 add();
-                                  print(value);
+                                 
                               },
                               child: Container(
                                 height: 50,

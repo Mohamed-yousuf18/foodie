@@ -29,6 +29,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
 
    String name = "";
 
+   bool _isPassobscureText = true;
+
    //bool login = false;
 
   void _signUp(BuildContext context) async {
@@ -218,15 +220,32 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                    // ),
                    TextField(
                      controller: _passwordController1,
-                     obscureText: true,
+                     obscureText: _isPassobscureText,
                      //controller: _CntrlText,
                      style: TextStyle(color: Colors.white),
                      decoration: InputDecoration(
+
                          prefixIcon:Icon(Icons.lock_outline,color: Colors.white,size: 25,),
+
                          label: Text("Password",style: TextStyle(color:(Colors.white),)),
-                         suffixIcon: Icon( CupertinoIcons.eye_slash,color:(Colors.white)),
+
+                         suffixIcon:
+                         InkWell(
+                             onTap: (){
+                               setState(() {
+
+                                 _isPassobscureText = ! _isPassobscureText;
+                               });
+                             },
+                             child:
+                             //Icon(_isPassobscureText? CupertinoIcons.eye_slash:Icons.remove_red_eye_outlined,color: ,)
+                             _isPassobscureText?Icon(CupertinoIcons.eye_slash,color: Colors.white,): Icon(Icons.remove_red_eye_outlined,color:Colors.white,) ),
+
+
                        enabledBorder: UnderlineInputBorder(
-                           borderSide: BorderSide(color: Colors.white70)),
+
+                           borderSide:
+                           BorderSide(color: Colors.white70)),
                        //hintStyle: TextStyle(color: (Colors.white)),
 
 

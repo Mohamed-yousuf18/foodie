@@ -130,7 +130,7 @@ class _PaymentPageState extends State<PaymentPage> {
                       //padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 5),
                       //shrinkWrap: true,
                       itemCount: pay.length,
-                      itemBuilder: (context, index) {
+                      itemBuilder: (context,  index) {
                         return Column(
                           children: [
                             //================================================================================RadioList=====================================
@@ -401,3 +401,4 @@ class _PaymentPageState extends State<PaymentPage> {
     );
   }
 }
+

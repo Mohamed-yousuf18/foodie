@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+   import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,6 +30,8 @@ class _SigninPageState extends State<SigninPage> {
    String name = "";
 
    bool login = false;
+
+   bool passobscureText = true;
 
   void _login(BuildContext context) async {
     try {
@@ -137,10 +139,12 @@ class _SigninPageState extends State<SigninPage> {
                   //
                   // ),
                   TextField(
+
                     controller: _emailController,
                     focusNode: myFocusNode,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
+
                         prefixIcon:Icon(Icons.email_outlined,color: Colors.white,size: 25,),
                         label: Text("Email",style: TextStyle(color:(Colors.white),)),
                       contentPadding: EdgeInsets.symmetric(
@@ -201,17 +205,31 @@ class _SigninPageState extends State<SigninPage> {
                   //   ),
                   // ),
                   TextField(
-                    obscureText: true,
+                    obscureText:passobscureText,
                     controller: _passwordController,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.symmetric(
                             horizontal: 16, vertical: 13).w,
-                        prefixIcon:Icon(Icons.lock_outline,color: Colors.white,size: 25,),
-                        label: Text("Password",style: TextStyle(color:(Colors.white),fontSize: 14.sp)),
-                        suffixIcon: Icon( CupertinoIcons.eye_slash,color:(Colors.white)),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.white70)),
+                        prefixIcon:Icon(
+                          Icons.lock_outline,color: Colors.white,size: 25,),
+                        label:
+                        Text("Password",style: TextStyle(color:(Colors.white),fontSize: 14.sp)),
+                        suffixIcon:
+                        InkWell(
+                          onTap: (){
+                            setState(() {
+                              passobscureText =!passobscureText;
+                            });
+
+
+                          },
+
+                            child: Icon( passobscureText? CupertinoIcons.eye_slash:Icons.visibility)),
+                      enabledBorder:
+                      UnderlineInputBorder(
+                          borderSide:
+                          BorderSide(color: Colors.white70)),
 
                       //hintStyle: TextStyle(color: (Colors.white)),
 

@@ -52,6 +52,9 @@ dependencies:
   flutter_beautiful_popup: ^1.4.0
   alghwalbi_awesome_popup: ^1.0.4
   like_button: ^2.0.5
+  expansion_widget: ^0.0.3
+  collapsible_sidebar: ^2.0.7
+  custom_sliding_segmented_control: ^1.8.2
 
 
 dev_dependencies:
